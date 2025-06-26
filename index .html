@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roz Nayi Umang ☀️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap');
+
+        body {
+            margin: 0; font-family: 'Poppins', 'Tiro Devanagari Hindi', sans-serif;
+            color: #4a2c2a; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; min-height: 100vh; padding: 20px 0;
+            background: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+            background-size: 400% 400%; animation: gradientBG 20s ease infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .ad-container {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(12px);
+            padding: 40px 30px; border-radius: 25px; text-align: center;
+            width: 90%; max-width: 550px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+            margin: 20px 0;
+        }
+
+        .header-container {
+            position: relative; margin-bottom: 20px; height: 150px;
+            display: flex; justify-content: center; align-items: center;
+        }
+        
+        h1 {
+            font-size: 4.5rem; margin: 0; font-family: 'Tiro Devanagari Hindi', serif;
+            color: #3e2723; text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+            position: relative; z-index: 2;
+        }
+        
+        .sun-container {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); width: 250px; height: 250px;
+            z-index: 1; opacity: 0.9;
+        }
+
+        .sun {
+            position: absolute; top: 50%; left: 50%; width: 70px; height: 70px;
+            background: radial-gradient(circle, #fff7b3 0%, #ffd700 50%, #f9a825 100%);
+            border-radius: 50%; transform: translate(-50%, -50%); z-index: 2;
+            animation: sun-pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes sun-pulse {
+            0%{box-shadow: 0 0 30px 10px #FFD700, 0 0 50px 20px #ffae00}
+            50%{box-shadow: 0 0 40px 15px #FFD700, 0 0 70px 30px #ffae00}
+            100%{box-shadow: 0 0 30px 10px #FFD700, 0 0 50px 20px #ffae00}
+        }
+
+        .sun-rays {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            animation: spin 30s linear infinite;
+        }
+
+        .sun-rays .ray {
+            position: absolute; left: 50%; bottom: 50%; width: 3px;
+            height: 125px; background: linear-gradient(to top, rgba(255, 220, 100, 0.8), transparent);
+            transform-origin: bottom center; border-radius: 3px;
+            animation: pulse-ray 3s ease-in-out infinite;
+        }
+
+        .ray:nth-child(even) { animation-delay: -1.5s; }
+        .ray:nth-child(1) { transform: rotate(0deg); } .ray:nth-child(2) { transform: rotate(30deg); }
+        .ray:nth-child(3) { transform: rotate(60deg); } .ray:nth-child(4) { transform: rotate(90deg); }
+        .ray:nth-child(5) { transform: rotate(120deg); } .ray:nth-child(6) { transform: rotate(150deg); }
+        .ray:nth-child(7) { transform: rotate(180deg); } .ray:nth-child(8) { transform: rotate(210deg); }
+        .ray:nth-child(9) { transform: rotate(240deg); } .ray:nth-child(10) { transform: rotate(270deg); }
+        .ray:nth-child(11) { transform: rotate(300deg); } .ray:nth-child(12) { transform: rotate(330deg); }
+        
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes pulse-ray { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.2); } }
+
+        h2#date { font-size: 1.1rem; color: #5d4037; }
+        #quote { font-size: 1.3rem; font-family: 'Tiro Devanagari Hindi', serif; font-style: italic; min-height: 80px; margin: 20px auto; max-width: 450px; color: #3e2723; transition: opacity 0.4s ease-in-out; }
+        .quote-fade { opacity: 0; }
+        
+        #userName {
+            width: 80%; padding: 12px; margin-bottom: 20px;
+            border: 1px solid rgba(0,0,0,0.2); border-radius: 50px;
+            background: rgba(255, 255, 255, 0.5); font-family: 'Poppins', sans-serif;
+            text-align: center; font-size: 1rem; color: #3e2723;
+        }
+        #userName::placeholder { color: #5d4037; opacity: 0.8; }
+
+        .buttons { margin-top: 10px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn { color: white; border: none; padding: 12px 25px; border-radius: 50px; font-size: 1rem; font-weight: bold; cursor: pointer; font-family: 'Poppins', sans-serif; transition: all 0.3s ease; text-decoration: none; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
+        .btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+
+        .new-quote-btn { background: linear-gradient(45deg, #ff8177, #f99185, #cf556c); }
+        .copy-btn { background: linear-gradient(45deg, #89f7fe, #66a6ff); }
+        .share-btn { background: linear-gradient(45deg, #a88beb, #f7ce68); }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 3.5rem; }
+            .sun-container { width: 200px; height: 200px; }
+            .sun { width: 50px; height: 50px; }
+            .sun-rays .ray { height: 100px; }
+            #quote { font-size: 1.2rem; }
+            .card { padding: 30px 20px; }
+            .btn { padding: 12px 20px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Ads -->
+    <div class="ad-container">
+        <script type="text/javascript"> atOptions = {'key' : 'fa4575cec5cae17f139a8270e518cfa8', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} }; </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/fa4575cec5cae17f139a8270e518cfa8/invoke.js"></script>
+    </div>
+    <div class="ad-container">
+        <script type="text/javascript"> atOptions = {'key' : 'fa4575cec5cae17f139a8270e518cfa8', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} }; </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/fa4575cec5cae17f139a8270e518cfa8/invoke.js"></script>
+    </div>
+
+    <div class="card">
+        <div class="header-container">
+            <div class="sun-container">
+                <div class="sun"></div>
+                <div class="sun-rays">
+                    <div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div><div class="ray"></div>
+                </div>
+            </div>
+            <h1>सुप्रभात</h1>
+        </div>
+        <h2 id="date"></h2>
+        <p id="quote">यहाँ आज का विचार दिखेगा...</p>
+        <input type="text" id="userName" placeholder="यहाँ अपना नाम लिखें...">
+        <div class="buttons">
+            <button class="btn new-quote-btn" onclick="showNewQuote()"><i class="fas fa-sync-alt"></i> नया विचार</button>
+            <button class="btn copy-btn" id="copy-btn" onclick="copyQuote()"><i class="fas fa-copy"></i> कॉपी करें</button>
+            <button class="btn share-btn" onclick="universalShare()"><i class="fas fa-share-alt"></i> शेयर करें</button>
+        </div>
+        <p style="margin-top: 30px; font-size: 0.9rem; color: #5d4037;">आपका दिन मंगलमय हो!</p>
+    </div>
+
+    <!-- Bottom Ads -->
+    <div class="ad-container">
+        <script type="text/javascript"> atOptions = {'key' : 'fa4575cec5cae17f139a8270e518cfa8', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} }; </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/fa4575cec5cae17f139a8270e518cfa8/invoke.js"></script>
+    </div>
+    <div class="ad-container">
+        <script type="text/javascript"> atOptions = {'key' : 'fa4575cec5cae17f139a8270e518cfa8', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} }; </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/fa4575cec5cae17f139a8270e518cfa8/invoke.js"></script>
+    </div>
+
+    <script>
+        const quotes=["सफलता का सबसे बड़ा रहस्य है, अपने काम में लगे रहना।","हर सुबह एक नया अवसर लेकर आती है, इसे व्यर्थ न जाने दें।","जो व्यक्ति कभी हार नहीं मानता, उसे कोई हरा नहीं सकता।","मुस्कान वो हीरा है जिसे आप बिना खरीदे पहन सकते हैं।","कल के लिए सबसे अच्छी तैयारी यही है कि आज अच्छा करो।","सकारात्मक सोच के साथ शुरू किया गया दिन, हमेशा बेहतर होता है।","छोटी-छोटी खुशियों में ही जीवन का असली आनंद छिपा है।","खुद पर विश्वास करो, तुम्हारे अंदर कुछ ऐसा है जो हर बाधा से बड़ा है।"];
+        const quoteElement=document.getElementById("quote"),dateElement=document.getElementById("date"),copyBtn=document.getElementById("copy-btn"),userNameInput=document.getElementById("userName");let currentQuote="";
+
+        // === UPDATED FUNCTION TO INCLUDE WEBPAGE LINK ===
+        function generateShareMessage(quote, name) {
+            let greeting = `☀️ *Roz Nayi Umang* ☀️\n\n🌅 *सुप्रभात!* 🌅\n`;
+            if (name) {
+                greeting = `*${name}* की ओर से सुप्रभात!\n\n✨ *Roz Nayi Umang* ✨\n`;
+            }
+            const pageUrl = window.location.href; // Yahan page ka URL mil jaata hai
+            return `${greeting}\n*आज का प्रेरणादायक विचार:*\n_"${quote}"_\n\nआपका दिन शुभ और मंगलमय हो! 😊\n\n👇 इस खूबसूरत पेज को यहाँ देखें 👇\n${pageUrl}`;
+        }
+        
+        function setDate(){const e=new Date,t={weekday:"long",year:"numeric",month:"long",day:"numeric"};dateElement.innerText=e.toLocaleDateString("hi-IN",t)}
+        function showNewQuote(){quoteElement.classList.add("quote-fade"),setTimeout(()=>{const e=Math.floor(Math.random()*quotes.length);currentQuote=quotes[e],quoteElement.innerText=`"${currentQuote}"`,quoteElement.classList.remove("quote-fade")},400)}
+        
+        function copyQuote(){
+            const name = userNameInput.value.trim();
+            const messageToCopy = generateShareMessage(currentQuote, name);
+            const t = document.createElement("textarea");
+            t.value = messageToCopy;
+            t.style.position = "fixed"; t.style.left = "-9999px";
+            document.body.appendChild(t);
+            try{ t.select(), document.execCommand("copy"), copyBtn.innerHTML='<i class="fas fa-check"></i> Copied!', setTimeout(()=>{copyBtn.innerHTML='<i class="fas fa-copy"></i> कॉपी करें'},2e3) }
+            catch(e){ console.error("Copy failed: ", e) }
+            finally{ document.body.removeChild(t) }
+        }
+
+        // === UPDATED FUNCTION TO SHARE URL ALONG WITH TEXT ===
+        async function universalShare() {
+            const name = userNameInput.value.trim();
+            const textToShare = generateShareMessage(currentQuote, name);
+            const pageUrl = window.location.href;
+            
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'Roz Nayi Umang',
+                        text: textToShare,
+                        url: pageUrl, // URL ko alag se bhi bhejte hain for better previews
+                    });
+                } catch (error) {
+                    console.log('Sharing failed:', error);
+                }
+            } else {
+                alert('शेयर फीचर आपके ब्राउज़र में सपोर्टेड नहीं है।\nसंदेश आपके क्लिपबोर्ड पर कॉपी कर दिया गया है।');
+                copyQuote();
+            }
+        }
+
+        window.onload=function(){setDate(),showNewQuote()};
+    </script>
+    
+    <!-- Social Bar Ad -->
+    <script type='text/javascript' src='//pl26861587.profitableratecpm.com/1f/74/57/1f7457b7dfb07283253e1f036bae81b7.js'></script>
+
+</body>
+</html>
